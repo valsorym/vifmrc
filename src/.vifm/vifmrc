@@ -1,0 +1,107 @@
+" Status panel
+" ============
+set laststatus
+set statusline="%-35f%10E%20d%15A     |     Free: %8a"
+
+" History
+" =======
+set history=128
+set vifminfo="bookmarks,bmarks,tui,state,cs,savedirs,dhistory,chistory,"\
+             "shistory,phistory,registers"
+
+" Show hidden files
+" =================
+" Hot keys:
+"   * za - toggle showing hidden files;
+"   * zo - show hidden files;
+"   * zm - hide hidden files.
+set dotfiles
+
+" Select files
+" ============
+" Hot keys:
+"   * t - select file;
+"   * <space> - select file end go to the next file;
+"   * <*> - select all files.
+map <space> tj
+map * ggVG<cr>
+
+" Navigation
+" ==========
+" Hot keys:
+"   * <backspace> - up directory (like `h`).
+map <bs> h
+
+" Search files.
+" =============
+" Do it:
+"   * activate tealtime file search;
+"   * ignore case of characters.
+set incsearch
+set ignorecase
+
+" Show paths
+" ==========
+" Hot keys:
+"   * sd - current directory path into the clipboard;
+"   * sf - current file path into the clipboard;
+"   * sn - current filename without path into the clipboard;
+"   * sr - root of current file's name into the clipboard.
+nnoremap sd :!echo -n %d %S <cr>
+nnoremap sf :!echo -n %c:p %S <cr>
+nnoremap sn :!echo -n %c %S <cr>
+nnoremap sr :!echo -n %c:r %S <cr>
+
+" Copy paths
+" ==========
+" Hot keys:
+"   * yd - current directory path into primary and selection clipboards;
+"   * yf - current file path into primary and selection clipboards;
+"   * yn - current filename without path into primary and selection clipboards;
+"   * yr - root of current file's name into primary and selection clipboards;
+" nnoremap yd :!echo -n %d | xclip %i<cr>
+nnoremap yd :!echo -n %d | xsel --input --primary %i &&
+            \ echo -n %d | xsel --clipboard --input %i<cr>
+" nnoremap yf :!echo -n %c:p | xclip %i<cr>
+nnoremap yf :!echo -n %c:p | xsel --input --primary %i &&
+            \ echo -n %c:p | xsel --clipboard --input %i<cr>
+" nnoremap yn :!echo -n %c | xclip %i<cr>
+nnoremap yn :!echo -n %c | xsel --input --primary %i &&
+            \ echo -n %c | xsel --clipboard --input %i<cr>
+" nnoremap yr :!echo -n %c:r | xclip %i<cr>
+nnoremap yr :!echo -n %c:r | xsel --input --primary %i &&
+            \ echo -n %c:r | xsel --clipboard --input %i<cr>
+
+" MC Like hot keys
+" ================
+" Hot keys:
+"   * F5 - copy file into other tab;
+"   * F6 - move file into other tab;
+"   * F7 - create new folder;
+"   * F8 - remove file into trash;
+"   * Ctrl + S - sync panels.
+map <f5> Y<tab>p<tab>
+map <f6> Y<tab>P<tab>
+map <f7> :mkdir<space>
+map <f8> dd
+map <c-s> :cd! %d %d<cr>
+
+" Archive Menu
+" ============
+filetype *.zip,*.jar,*.war,*.ear
+         \ {Mount with fuse-zip}
+         \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
+         \ {View contents}
+         \ zip -sf %c | less,
+         \ {Extract here}
+         \ tar -xf %c,
+
+" SSH
+" ===
+filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND
+
+" Color scheme
+" ============
+" Hot change:
+" :colorscheme [Default, local, server]
+colorscheme local
