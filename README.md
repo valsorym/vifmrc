@@ -91,8 +91,8 @@ Quick Start
 Installation of configurations:
 
 ```
-$ git clone git://github.com/valsorym/vifm-configs /tmp/vifm-configs
-$ cd /tmp/vifm-configs
+$ git clone git://github.com/valsorym/vifmrc /tmp/vifmrc
+$ cd /tmp/vifmrc
 ```
 
 For local:
