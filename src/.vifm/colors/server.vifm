@@ -33,16 +33,16 @@ highlight clear
 
 highlight Win             cterm=none ctermfg=default ctermbg=none
 
-highlight CurrLine        cterm=bold ctermfg=white ctermbg=magenta
+highlight CurrLine        cterm=bold ctermfg=white ctermbg=red
 highlight Selected        cterm=bold ctermfg=yellow ctermbg=default
 
-highlight TopLine         cterm=none ctermfg=white ctermbg=red
-highlight TopLineSel      cterm=none ctermfg=white ctermbg=red
+highlight TopLine         cterm=none ctermfg=white ctermbg=default
+highlight TopLineSel      cterm=none ctermfg=white ctermbg=default
 highlight StatusLine      cterm=none ctermfg=white ctermbg=red
 highlight Border          cterm=none ctermfg=none ctermbg=none
 
 highlight WildMenu        cterm=underline,reverse ctermfg=white ctermbg=black
-highlight CmdLine         cterm=none ctermfg=white ctermbg=default
+highlight CmdLine         cterm=none ctermfg=white ctermbg=black
 highlight ErrorMsg        cterm=none ctermfg=red ctermbg=black
 
 highlight Directory       cterm=none ctermfg=cyan ctermbg=default
