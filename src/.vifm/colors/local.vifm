@@ -33,7 +33,7 @@ highlight clear
 
 highlight Win             cterm=none ctermfg=default ctermbg=none
 
-highlight CurrLine        cterm=bold ctermfg=white ctermbg=white
+highlight CurrLine        cterm=bold ctermfg=white ctermbg=cyan
 highlight Selected        cterm=bold ctermfg=yellow ctermbg=default
 
 highlight TopLine         cterm=none ctermfg=white ctermbg=default
